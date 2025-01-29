@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suhail's Ice Cream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            text-decoration: none;
+            color: #ff6f61;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #ff6f61;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .menu-item {
+            text-align: center;
+            margin: 15px;
+        }
+        .menu-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .order-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .order-form input, .order-form textarea, .order-form button {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #ff6f61;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Suhail's Ice Cream</h1>
+    <p>Bringing Coolness to Your Village!</p>
+</header>
+
+<nav>
+    <a href="#menu">Menu</a>
+    <a href="#order">Order Now</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu">
+        <div class="menu-item">
+            <img src="venilla.jpg" alt="Vanilla">
+            <h3>Vanilla</h3>
+            <p>₹20 - Small Cup</p>
+        </div>
+        <div class="menu-item">
+            <img src="mango.jpeg" alt="Mango">
+            <h3>Mango</h3>
+            <p>₹25 - Small Cup</p>
+        </div>
+        <div class="menu-item">
+            <img src="chocolate.jpeg" alt="Chocolate">
+            <h3>Chocolate</h3>
+            <p>₹30 - Small Cup</p>
+        </div>
+    </div>
+</section>
+
+<section id="order">
+    <h2>Order Now</h2>
+    <form class="order-form" onsubmit="submitOrder(event)">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <textarea id="address" placeholder="Your Address" rows="4" required></textarea>
+        <input type="text" id="details" placeholder="Flavors & Quantity (e.g., Vanilla x2)" required>
+        <button type="submit" style="background-color: #ff6f61; color: white; border: none;">Place Order</button>
+    </form>
+    <script>
+        async function submitOrder(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("address").value;
+            const details = document.getElementById("details").value;
+    
+            const response = await fetch("http://localhost:3000/order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, phone, address, details }),
+            });
+    
+            const result = await response.json();
+            alert(result.message);
+        }
+    </script>
+    <script src="script.js"></script>
+    
+    
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>We are proud to bring fresh, delicious ice cream to our village. All our ice creams are made with high-quality ingredients and a lot of love! Try our flavors and enjoy the coolness!</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Phone: <strong>+91 9758135618</strong></p>
+    <p>WhatsApp: <a href="https://wa.me/91975135618" target="_blank">Click to Chat</a></p>
+    <p>Visit Us: [Hind Adda S.R. CONTRACTOR]</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Suhail's Ice Cream. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
