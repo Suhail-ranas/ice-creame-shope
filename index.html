@@ -119,35 +119,95 @@
 </section>
 
 <section id="order">
-    <h2>Order Now</h2>
-   <form action="https://formsubmit.co/suhailranayt@gmail.com" method="POST">
-    <h2>Order Ice Cream</h2>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Ice Cream</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f3ec;
+            text-align: center;
+        }
+        .order-container {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #ff7f50;
+            font-size: 24px;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #444;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #ff7f50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #e76a3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <h2>🍦 Order Your Ice Cream 🍦</h2>
+        <form action="https://formsubmit.co/suhailranayt@gmail.com" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-    <label for="email">Email Address:</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
-    <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            <label for="flavor">Select Ice Cream Flavor:</label>
+            <select id="flavor" name="flavor" required>
+                <option value="chocolate">Chocolate</option>
+                <option value="vanilla">Vanilla</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="butterscotch">Butterscotch</option>
+            </select>
 
-    <label for="flavor">Select Ice Cream Flavor:</label>
-    <select id="flavor" name="flavor" required>
-        <option value="chocolate">Chocolate</option>
-        <option value="vanilla">Vanilla</option>
-        <option value="strawberry">Strawberry</option>
-        <option value="butterscotch">Butterscotch</option>
-    </select>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
 
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" min="1" required>
+            <label for="address">Delivery Address:</label>
+            <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
 
-    <label for="address">Delivery Address:</label>
-    <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+            <!-- Hidden Fields -->
+            <input type="hidden" name="_next" value="https://suhail-ranas.github.io/ice-creame-shope/thank-you.html">
+            <input type="hidden" name="_autoresponse" value="Thank you for ordering! Your ice cream is on the way. 🍦">
+            
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+</body>
+</html>
 
-    <button type="submit">Place Order</button>
-</form>
 
     <script>
         async function submitOrder(event) {
