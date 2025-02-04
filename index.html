@@ -120,14 +120,35 @@
 
 <section id="order">
     <h2>Order Now</h2>
-   <form action="https://formsubmit.co/suhailranayt@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="text" name="icecream" placeholder="Ice Cream Flavor" required>
-        <textarea name="address" placeholder="Your Address" required></textarea>
-        <button type="submit">Order Now</button>
-    </form>
-    
+   <form action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+    <h2>Order Ice Cream</h2>
+
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+    <label for="flavor">Select Ice Cream Flavor:</label>
+    <select id="flavor" name="flavor" required>
+        <option value="chocolate">Chocolate</option>
+        <option value="vanilla">Vanilla</option>
+        <option value="strawberry">Strawberry</option>
+        <option value="butterscotch">Butterscotch</option>
+    </select>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1" required>
+
+    <label for="address">Delivery Address:</label>
+    <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+
+    <button type="submit">Place Order</button>
+</form>
+
     <script>
         async function submitOrder(event) {
             event.preventDefault();
