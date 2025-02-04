@@ -120,13 +120,14 @@
 
 <section id="order">
     <h2>Order Now</h2>
-    <form class="order-form" onsubmit="submitOrder(event)">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="text" id="phone" placeholder="Phone Number" required>
-        <textarea id="address" placeholder="Your Address" rows="4" required></textarea>
-        <input type="text" id="details" placeholder="Flavors & Quantity (e.g., Vanilla x2)" required>
-        <button type="submit" style="background-color: #ff6f61; color: white; border: none;">Place Order</button>
+   <form action="https://formsubmit.co/suhailranayt@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="icecream" placeholder="Ice Cream Flavor" required>
+        <textarea name="address" placeholder="Your Address" required></textarea>
+        <button type="submit">Order Now</button>
     </form>
+    
     <script>
         async function submitOrder(event) {
             event.preventDefault();
